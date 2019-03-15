@@ -1,0 +1,33 @@
+{% extends 'baseAdmin/index.html' %}
+
+{% block contenido %}
+<h1>Programa</h1>
+<a href="{% url 'taller:nuevoPrograma' %}" class="btn-agregar">Agregar</a>
+<table class="table table-responsive table-hover">
+	<thead class="thead">
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Día</th>
+			<th scope="col">Horario</th>
+			<th scope="col">Actividad</th>
+			<th scope="col">Acción</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for programa in object_list %}
+			<tr>
+				<td>{{programa.id}}</td>
+				<td class="tabla-id">{{programa.dia}}</td>
+				<td class="tabla-id">{{programa.horario}}</td>
+				<td class="programa-actividad">{{programa.actividad}}</td>
+				<td class="acciones">
+					<a class="btn" href="{% url 'taller:editarPrograma' programa.id %}">Editar</a>
+					<a class="btn" href="{% url 'taller:eliminarPrograma' programa.id %}">Eliminar</a>
+				</td>
+			</tr>
+		{% endfor %}
+
+	</tbody>
+</table>
+
+{% endblock %}

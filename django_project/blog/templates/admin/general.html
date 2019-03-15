@@ -1,0 +1,38 @@
+{% extends 'baseAdmin/index.html' %}
+
+{% block contenido %}
+<h1>Información General</h1>
+<table class="table table-responsive table-hover">
+	<thead class="thead">
+		<tr>
+			<th scope="col">Lugar</th>
+			<th scope="col">Fecha</th>
+			<th scope="col">Hora</th>
+			<th scope="col">Dirección</th>
+			<th scope="col">Teléfono 1</th>
+			<th scope="col">Teléfono 2</th>
+			<th scope="col">Correo</th>
+			<th scope="col">Cupo Talleres</th>
+			<th scope="col">Acción</th>
+		</tr>
+	</thead>
+	<body>
+		{% for detalle in object_list %}
+			<tr>
+				<td>{{detalle.lugar}}</td>
+				<td>{{detalle.fecha}}</td>
+				<td>{{detalle.hora}}</td>
+				<td>{{detalle.direccion}}</td>
+				<td>{{detalle.telefono}}</td>
+				<td>{{detalle.telefono2}}</td>
+				<td>{{detalle.correo}}</td>
+				<td>{{detalle.cupoMax}}</td>
+				<td class="acciones">
+					<a class="btn" href="{% url 'taller:editarGeneral' detalle.id %}">Editar</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

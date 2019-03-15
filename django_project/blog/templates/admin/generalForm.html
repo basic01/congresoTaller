@@ -1,0 +1,14 @@
+{% extends 'baseAdmin/index.html' %}
+
+{% block contenido %}
+<div class="row cont-form justify-content-md-center">
+	<div class="row">
+		<h1>Formulario Detalles</h1>
+		<form method="post" class="form">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button type="submit" class="btn btn-primary">Aceptar</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
